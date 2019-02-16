@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SportsStore.Models;
+
 
 namespace SportsStore
 {
@@ -17,6 +19,8 @@ namespace SportsStore
        {
            public void ConfigureServices(IServiceCollection service)
            {
+               services.AddTransient<IProductRepository,
+                   FakeProductRepository>();
                service.AddMvc();
            }
 
