@@ -17,12 +17,12 @@ namespace SportsStore
     public class Startup
     
        {
-           public void ConfigureServices(IServiceCollection service)
+           public void ConfigureServices(IServiceCollection services)
            {
                services.AddTransient<IProductRepository,
                    FakeProductRepository>();
-               service.AddMvc();
-           }
+               services.AddMvc();
+        }
 
            public void Configure(IApplicationBuilder app, IHostingEnvironment env)
            {
