@@ -10,18 +10,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SportsStore.Models;
-
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace SportsStore
 {
     public class Startup
     
        {
-           public void ConfigureServices(IServiceCollection services)
+           public Startup(IConfiguration configuration) =>
+               Configuration = configuration;
+           public IConfiguration Configuration { get; }
+        public void ConfigureServices(IServiceCollection services)
            {
-               services.AddTransient<IProductRepository,
-                   FakeProductRepository>();
-               services.AddMvc();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                   options.UseSqlServer(
+                       Configuration["Data: SportStoreProducts:ConnectionString"]));
+               services.AddTransient<IProductRepository, EFProductRepository>();
+            services.AddMvc();
         }
 
            public void Configure(IApplicationBuilder app, IHostingEnvironment env)
