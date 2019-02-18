@@ -21,9 +21,10 @@ namespace SportsStore
            public Startup(IConfiguration configuration) =>
                Configuration = configuration;
            public IConfiguration Configuration { get; }
+
         public void ConfigureServices(IServiceCollection services)
            {
-            services.AddDbContext<ApplicationDbContext>(options =>
+               services.AddDbContext<ApplicationDbContext>(options =>
                    options.UseSqlServer(
                        Configuration["Data: SportStoreProducts:ConnectionString"]));
                services.AddTransient<IProductRepository, EFProductRepository>();
