@@ -25,7 +25,7 @@ namespace SportsStore.Tests
             var urlHelperFactory = new Mock<IUrlHelperFactory>();
             urlHelperFactory.Setup(f =>
                     f.GetUrlHelper(It.IsAny<ActionContext>()))
-                        .Returns(urlHelper.Object);
+                .Returns(urlHelper.Object);
 
             PageLinkTagHelper helper =
             new PageLinkTagHelper(urlHelperFactory.Object)
