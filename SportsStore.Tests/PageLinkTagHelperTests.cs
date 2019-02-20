@@ -45,8 +45,8 @@ namespace SportsStore.Tests
 
             var content = new Mock<TagHelperContent>();
             TagHelperOutput output = new TagHelperOutput("div",
-                new TagHelperAttributeList(),
-                    (cache, encoder) => Task.FromResult(content.Object));
+            new TagHelperAttributeList(),
+            (cache, encoder) => Task.FromResult(content.Object));
 
             // Dzia³anie.
             helper.Process(ctx, output);
