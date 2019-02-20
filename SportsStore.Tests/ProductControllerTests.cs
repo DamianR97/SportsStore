@@ -3,7 +3,7 @@ using System.Linq;
 using Moq;
 using SportsStore.Controllers;
 using SportsStore.Models;
-using SportsStore.Models.ViewModels;
+using SportsStore.Models.ViewsModels;
 using Xunit;
 namespace SportsStore.Tests
 {
@@ -24,7 +24,7 @@ namespace SportsStore.Tests
             ProductController controller = new ProductController(mock.Object);
             controller.PageSize = 3;
             // Działanie.
-            IEnumerable<Product> result =
+            IEnumerable<Product> result = 
                 controller.List(2).ViewData.Model as IEnumerable<Product>;
             // Asercje.
             Product[] prodArray = result.ToArray();
