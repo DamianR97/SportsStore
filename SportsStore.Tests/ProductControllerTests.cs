@@ -3,7 +3,7 @@ using System.Linq;
 using Moq;
 using SportsStore.Controllers;
 using SportsStore.Models;
-using SportsStore.Models.ViewsModels;
+using SportsStore.Models.ViewModels;
 using Xunit;
 namespace SportsStore.Tests
 {
