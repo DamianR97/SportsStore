@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+Ôªøusing System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Moq;
@@ -15,21 +15,19 @@ namespace SportsStore.Tests
             // Przygotowanie.
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns((new Product[] {
-                new Product {ProductID = 1, Name = "P1", Category = "Jab≥ka"},
-                new Product {ProductID = 2, Name = "P2", Category = "Jab≥ka"},
-                new Product {ProductID = 3, Name = "P3", Category = "åliwki"},
-                new Product {ProductID = 4, Name = "P4", Category = "PomaraÒcze"},
+                new Product {ProductID = 1, Name = "P1", Category = "Jab≈Çka"},
+                new Product {ProductID = 2, Name = "P2", Category = "Jab≈Çka"},
+                new Product {ProductID = 3, Name = "P3", Category = "≈öliwki"},
+                new Product {ProductID = 4, Name = "P4", Category = "Pomara≈Ñcze"},
             }).AsQueryable<Product>());
-
             NavigationMenuViewComponent target =
                 new NavigationMenuViewComponent(mock.Object);
-
-            // Dzia≥anie ó pobranie zbioru kategorii.
+            // Dzia≈Çanie ‚Äî pobranie zbioru kategorii.
             string[] results = ((IEnumerable<string>)(target.Invoke()
                 as ViewViewComponentResult).ViewData.Model).ToArray();
-
             // Asercje.
-            Assert.True(Enumerable.SequenceEqual(new string[] { "Jab≥ka", "PomaraÒcze", "åliwki" }, results));
+            Assert.True(Enumerable.SequenceEqual(new string[] { "Jab≈Çka",
+                "Pomara≈Ñcze", "≈öliwki" }, results));
         }
     }
 }
