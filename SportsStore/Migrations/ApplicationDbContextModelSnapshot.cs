@@ -32,7 +32,7 @@ namespace SportsStore.Migrations
 
                     b.Property<decimal>("Price");
 
-                    b.HasKey("ProductID");
+                    b.HasKey("ProductId");
 
                     b.ToTable("Products");
                 });
