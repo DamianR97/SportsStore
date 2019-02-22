@@ -59,7 +59,7 @@ namespace SportsStore.Tests
         [Fact]
         public void Can_Send_Pagination_View_Model()
         {
-            // Przygotowanie.
+            // Przygotowanie. 
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns((new Product[] {
                 new Product {ProductID = 1, Name = "P1"},
@@ -68,13 +68,13 @@ namespace SportsStore.Tests
                 new Product {ProductID = 4, Name = "P4"},
                 new Product {ProductID = 5, Name = "P5"}
             }).AsQueryable<Product>());
-            // Przygotowanie.
             ProductController controller =
                 new ProductController(mock.Object) { PageSize = 3 };
-            // Działanie.
+            // Działanie. 
             ProductsListViewModel result =
                 controller.List(null, 2).ViewData.Model as ProductsListViewModel;
-            // Asercje.
+
+            // asercje 
             PagingInfo pageInfo = result.PagingInfo;
             Assert.Equal(2, pageInfo.CurrentPage);
             Assert.Equal(3, pageInfo.ItemsPerPage);
