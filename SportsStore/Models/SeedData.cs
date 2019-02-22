@@ -78,13 +78,6 @@ namespace SportsStore.Models
                         Category = "Szachy",
                         Price = 1200
                     }
-                    new Product
-                    {
-                    Name = "Dildos",
-                        Description = "Wielki gumowy chuj",
-                        Category = "Sporty wodne",
-                        Price = 100
-                    }
                 );
                 context.SaveChanges();
             }
