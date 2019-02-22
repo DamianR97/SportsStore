@@ -45,7 +45,7 @@ namespace SportsStore.Models
                     },
                     new Product
                     {
-                        Name = "Stadiom",
+                        Name = "Stadion",
                         Description = "Składany stadion na 35 000 osób",
                         Category = "Piłka nożna",
                         Price = 79500
@@ -77,6 +77,13 @@ namespace SportsStore.Models
                         Description = "Figura pokryta złotem i wysadzana diamentami",
                         Category = "Szachy",
                         Price = 1200
+                    }
+                    new Product
+                    {
+                    Name = "Dildos",
+                        Description = "Wielki gumowy chuj",
+                        Category = "Sporty wodne",
+                        Price = 100
                     }
                 );
                 context.SaveChanges();
