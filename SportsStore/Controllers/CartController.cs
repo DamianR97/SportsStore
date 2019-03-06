@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SportsStore.Infrastructure;
 using SportsStore.Models;
+using SportsStore.Models.ViewModels;
 namespace SportsStore.Models
 {
     public class CartController : Controller
@@ -11,6 +12,14 @@ namespace SportsStore.Models
         public CartController(IProductRepository repo)
         {
             repository = repo;
+        }
+        public ViewResult Index(string returnUrl)
+        {
+            return View(new CartIndexViewModel
+            {
+                Cart = GetCart(),
+                ReturnUrl = returnUrl
+            });
         }
         public RedirectToActionResult AddToCart(int productId, string returnUrl)
         {
