@@ -15,10 +15,10 @@ namespace SportsStore.Tests
             // Przygotowanie.
             Mock<IProductRepository> mock = new Mock<IProductRepository>();
             mock.Setup(m => m.Products).Returns((new Product[] {
-                new Product {ProductID = 1, Name = "P1", Category = "Jabłka"},
-                new Product {ProductID = 2, Name = "P2", Category = "Jabłka"},
-                new Product {ProductID = 3, Name = "P3", Category = "Śliwki"},
-                new Product {ProductID = 4, Name = "P4", Category = "Pomarańcze"},
+                new Product {ProductId = 1, Name = "P1", Category = "Jabłka"},
+                new Product {ProductId = 2, Name = "P2", Category = "Jabłka"},
+                new Product {ProductId = 3, Name = "P3", Category = "Śliwki"},
+                new Product {ProductId = 4, Name = "P4", Category = "Pomarańcze"},
             }).AsQueryable<Product>());
             NavigationMenuViewComponent target =
                 new NavigationMenuViewComponent(mock.Object);

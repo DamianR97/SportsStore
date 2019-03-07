@@ -24,7 +24,7 @@ namespace SportsStore.Controllers
         public RedirectToActionResult AddToCart(int productId, string returnUrl)
         {
             Product product = repository.Products
-                .FirstOrDefault(p => p.ProductID == productId);
+                .FirstOrDefault(p => p.ProductId == productId);
             if (product != null)
             {
                 cart.AddItem(product, 1);
@@ -35,7 +35,7 @@ namespace SportsStore.Controllers
             string returnUrl)
         {
             Product product = repository.Products
-                .FirstOrDefault(p => p.ProductID == productId);
+                .FirstOrDefault(p => p.ProductId == productId);
             if (product != null)
             {
                 cart.RemoveLine(product);
