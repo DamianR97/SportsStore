@@ -56,7 +56,7 @@ namespace SportsStore.Tests {
             // Dzia³anie.
             target.RemoveLine(p2);
             // Asercje.
-            Assert.Equal(0, target.Lines.Where(c => c.Product == p2).Count());
+            Assert.Equal(0, target.Lines.Count(c => c.Product == p2));
             Assert.Equal(2, target.Lines.Count());
         }
         [Fact]
@@ -89,7 +89,7 @@ namespace SportsStore.Tests {
             // Dzia³anie — czyszczenie koszyka.
             target.Clear();
             // Asercje.
-            Assert.Equal(0, target.Lines.Count());
+            Assert.Empty(target.Lines);
         }
     }
 }
