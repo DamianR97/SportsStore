@@ -75,5 +75,25 @@ namespace SportsStore.Tests
             // Asercje.
             Assert.Null(result);
         }
+        [Fact]
+        public void Can_Delete_Valid_Products()
+        {
+            // Przygotowanie — tworzenie produktu.
+            Product prod = new Product { ProductId = 2, Name = "Test" };
+            // Przygotowanie — tworzenie imitacji repozytorium.
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[] {
+                new Product {ProductId = 1, Name = "P1"},
+                prod,
+                new Product {ProductId = 3, Name = "P3"},
+            }.AsQueryable<Product>());
+            // Przygotowanie — tworzenie kontrolera.
+            AdminController target = new AdminController(mock.Object);
+            // Działanie — usunięcie produktu.
+            target.Delete(prod.ProductId);
+            // Asercje — upewnienie się, że metoda repozytorium
+            // została wywołana z właściwym produktem.
+            mock.Verify(m => m.DeleteProduct(prod.ProductId));
+        }
     }
 }
