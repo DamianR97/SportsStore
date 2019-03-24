@@ -12,11 +12,14 @@
     <None Include="Views\Product\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="jQuery" Version="3.2.1" />
+    <PackageReference Include="jQuery.Validation" Version="1.17.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.0.0-preview-27324-5" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="3.2.11" />
     <PackageReference Include="Moq" Version="4.7.99" />
   </ItemGroup>
 
