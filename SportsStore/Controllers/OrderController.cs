@@ -14,6 +14,7 @@ namespace SportsStore.Controllers
         }
         public ViewResult List() =>
             View(repository.Orders.Where(o => !o.Shipped));
+
         [HttpPost]
         public IActionResult MarkShipped(int orderID)
         {
@@ -26,6 +27,7 @@ namespace SportsStore.Controllers
             }
             return RedirectToAction(nameof(List));
         }
+
         public ViewResult Checkout() => View(new Order());
         [HttpPost]
         public IActionResult Checkout(Order order)
